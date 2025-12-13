@@ -1,5 +1,8 @@
 import tiktoken as tk
 
+def get_encoding(model_name: str) -> tk.Encoding:
+    return tk.encoding_for_model(model_name=model_name)
+
 def get_tokens(string: str, encoding_name: str) -> list[int]:
 
     encoding = tk.get_encoding(encoding_name=encoding_name)
@@ -17,6 +20,7 @@ def get_string(tokens: list[int], encoding_name: str) -> str:
 def main() -> None:
     prompt = "I have a white dog named Champ"
 
+    # cl100k_base is used for gpt-4o
     print("number of tokens ", count_token(prompt, encoding_name="cl100k_base"))
 
 if __name__ == "__main__":

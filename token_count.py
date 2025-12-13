@@ -28,9 +28,29 @@ def get_tokens(string: str, encoding_name: str) -> list[int]:
     return encoding.encode(string)
 
 def count_token(string: str, encoding_name: str) -> int:
+    """
+    Quick function to get the length of an encoded string
+
+    Args:
+        string (str): String to encode
+        encoding_name (str): The encoding type
+
+    Returns:
+        int: The length of the encoded string
+    """
     return len(get_tokens(string, encoding_name))
 
 def get_string(tokens: list[int], encoding_name: str) -> str:
+    """
+    Return the original string after encoding
+
+    Args:
+        tokens (list[int]): The token list
+        encoding_name (str): The encoding algorithm
+
+    Returns:
+        str: The original string
+    """
     encoding = tk.get_encoding(encoding_name)
 
     return encoding.decode(tokens=tokens)
